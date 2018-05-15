@@ -1,0 +1,17 @@
+<div class="col-12">
+  <div class="col-12">
+    <label class="col-6" for="teams">Team</label>
+    <select (change)="onChangeSelect($event.target.value)"  class="form-control" id="teams">
+      <option selected>Please select a team !</option>
+      <option *ngFor="let team of teams, let i = index" [value]="team.teamName">{{ team.teamName }}</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <label class="col-6" for="rate">Rate: </label>
+    <span *ngIf="currentTeam" id="rate">{{('&#9733;').repeat(currentTeam.rate) }}{{('&#9734;').repeat(5-currentTeam.rate)}}</span>
+  </div>
+  <div class="col-12">
+    <label class="col-6" for="uefa">Plays in UEFA: </label>
+    <span *ngIf="currentTeam" id="uefa">{{ currentTeam.inUefaLeague ? 'yes' : 'no' }}</span>
+  </div>
+</div>
