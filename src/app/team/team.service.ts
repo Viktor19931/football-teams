@@ -1,7 +1,10 @@
+import { Subject } from 'rxjs/Subject';
+
 import { ITeam } from './team.interface';
 
 export class TeamService {
   teams: ITeam[];
+  selectedCountry = new Subject<string>();
   constructor() {
     // console.log(this.getTeamsMetaData());
     this.teams = this.getTeamsMetaData();

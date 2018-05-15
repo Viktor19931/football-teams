@@ -1,4 +1,15 @@
 #teams {
   display: inline-block;
   width: unset;
+  height: 27px;
 }
+
+.teams {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+label {
+  margin-bottom: 45px;
+}
+

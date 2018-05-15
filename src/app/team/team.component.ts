@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { TeamService } from './team.service';
 import { ITeam } from './team.interface';
-import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-team',
@@ -10,14 +9,12 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
-  selectedCountry = new Subject<string>();
   teams: ITeam[];
   selectedClub: string;
   currentTeam: ITeam;
 
-  constructor(private team: TeamService) {
-    team.getTeamsMetaData();
-
+  constructor(private teamService: TeamService) {
+    teamService.getTeamsMetaData();
   }
 
   ngOnInit() {
@@ -25,7 +22,7 @@ export class TeamComponent implements OnInit {
   }
 
   getTeams() {
-    this.teams = this.team.getTeams();
+    this.teams = this.teamService.getTeams();
     console.log(this.teams);
   }
 
@@ -34,6 +31,7 @@ export class TeamComponent implements OnInit {
     for (const team of this.teams) {
       if (team.teamName === this.selectedClub) {
         this.currentTeam = team;
+        this.teamService.selectedCountry.next(team.countyCode);
       }
     }
   }

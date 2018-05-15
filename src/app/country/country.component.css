@@ -1,0 +1,11 @@
+.country {
+  border: 1px solid black;
+  height: 230px;
+  padding-top: 10px;
+}
+
+.flag {
+  max-width: 60%;
+  margin: 0 auto;
+  display: block;
+}

@@ -1,3 +1,10 @@
-<p>
-  country works!
-</p>
+<div class="col-12">
+  <div class="col-12 country">
+    <div class="row">
+      <label *ngIf="selectedCountry" class="col-6 text-center" for="country">Country: </label>
+      <span *ngIf="selectedCountry" class="col-6 text-center" id="country">{{ selectedCountry.name }}</span>
+    </div>
+    <img *ngIf="selectedCountry" class="flag" src="{{ selectedCountry.flagUrl }}" alt="flag">
+    <span *ngIf="!selectedCountry" >Please selecte a country !</span>
+  </div>
+</div>
