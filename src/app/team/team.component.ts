@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { TeamService } from './team.service';
-import {ITeam} from './team.interface';
+import { ITeam } from './team.interface';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-team',
@@ -8,6 +10,7 @@ import {ITeam} from './team.interface';
   styleUrls: ['./team.component.css']
 })
 export class TeamComponent implements OnInit {
+  selectedCountry = new Subject<string>();
   teams: ITeam[];
   selectedClub: string;
   currentTeam: ITeam;
